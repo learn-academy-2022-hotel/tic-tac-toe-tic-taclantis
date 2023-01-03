@@ -8,6 +8,10 @@ const App = () => {
   const [counter, setCounter] = useState(0)
 
   const handleGamePlay = (clickedSquare) => {
+    if (squares[clickedSquare] !== null) {
+      // console.log(null)
+      return
+    }
     // if counter is even // ❌ 
     if (counter % 2 === 0) {
       let updateSquare = [...squares]
@@ -30,7 +34,7 @@ const App = () => {
       <h1>Tic Tac Toe</h1>
       <div className='board'>
         {squares.map((square, index) => {
-          return <Square square={square} index={index} handleGamePlay={handleGamePlay} />
+          return <Square key={index} square={square} index={index} handleGamePlay={handleGamePlay} />
         })}
       </div>
     </>
